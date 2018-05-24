@@ -15,12 +15,12 @@ defmodule CreateFunWeb.PageController do
   end
 
   def healthcheck(conn, _params) do
-    json(conn, %CreateFun.System.Healthcheck{
-      application: :create_fun_web,
-      application_version: CreateFunWeb.Mixfile.project[:version],
-      current_url: current_path(conn),
-      host: Plug.Conn.get_req_header(conn, "host")}
-    )
+    # json(conn, %CreateFun.System.Healthcheck{
+    #   application: :create_fun_web,
+    #   application_version: CreateFunWeb.Mixfile.project[:version],
+    #   current_url: current_path(conn),
+    #   host: Plug.Conn.get_req_header(conn, "host")}
+    # )
   end
 
 end
