@@ -2,7 +2,11 @@ defmodule CreateFunCms.PageController do
   use CreateFunCms, :controller
 
   def index(conn, _params) do
-    render conn, "index.html"
+    conn |> redirect(to: page_path(conn, :dashboard))
+  end
+
+  def dashboard(conn, _params) do
+    render(conn, "dashboard.html")
   end
 
   def login(conn, _params) do
@@ -14,12 +18,12 @@ defmodule CreateFunCms.PageController do
   end
 
   def healthcheck(conn, _params) do
-    json(conn, %CreateFun.System.Healthcheck{
-      application: :create_fun_cms,
-      application_version: CreateFunCms.Mixfile.project[:version],
-      current_url: current_path(conn),
-      host: Plug.Conn.get_req_header(conn, "host")}
-    )
+    # json(conn, %CreateFun.System.Healthcheck{
+    #   application: :create_fun_cms,
+    #   application_version: CreateFunCms.Mixfile.project[:version],
+    #   current_url: current_path(conn),
+    #   host: Plug.Conn.get_req_header(conn, "host")}
+    # )
   end
 
 end

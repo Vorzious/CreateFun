@@ -28,7 +28,7 @@
             </li>
 
             <!-- Home -->
-            <li class='<%= navigation_active_parent_checker(@conn.path_info, page_path(@conn, :index)) %>'>
+            <li class='<%= navigation_active_parent_checker(@conn.path_info, page_path(@conn, :dashboard)) %>'>
               <%= link to: page_path(@conn, :index) do %>
                   <i class="fas fa-home"></i>
                   <span class="nav-label">Home</span>
@@ -73,9 +73,9 @@
             </div>
             <ul class="nav navbar-right text-right">
               <li>
-                <a href="login.html">
+                <%= link to: auth_path(@conn, :delete), method: :delete do %>
                   <i class="fas fa-sign-out-alt"></i> Log out
-                </a>
+                <% end %>
               </li>
             </ul>
           </nav>
