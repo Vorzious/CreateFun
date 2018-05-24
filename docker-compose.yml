@@ -1,0 +1,34 @@
+version: '3.3'
+services:
+    create_fun:
+        container_name: "create_fun_dev"
+        image: "create_fun_image_dev"
+        build:
+            context: .
+            dockerfile: ./docker_files/Dockerfile.compose
+            args:
+                MIX_ENV: dev
+        working_dir: /application/create_fun_umbrella
+        ports:
+            - "4000:4000"
+        volumes:
+            - .:/application
+        environment:
+            MIX_ENV: dev
+            PORT: 4000
+            POSTGRES_HOSTNAME: postgres_create_fun
+            POSTGRES_USERNAME: postgres
+            POSTGRES_PASSWORD: supersecret
+            POSTGRES_DATABASE: postgres_create_fun
+            SECRET_KEY_BASE_ENDPOINT: YtOkarOMtsv+HB8ghxSnp+lVM8FCp88qlouZq/rvSX3Eka3xm+1t5Ln3PrrYlM4t_create_fun
+        depends_on:
+            - postgres_create_fun
+        command: /bin/bash /application/docker_files/docker_command.sh
+
+    postgres_create_fun:
+        image: postgres:9.6
+        container_name: "create_fun_postgres_dev"
+        ports:
+            - "11223:5432"
+        environment:
+            POSTGRES_PASSWORD: supersecret
