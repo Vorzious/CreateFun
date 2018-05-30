@@ -5,7 +5,7 @@ defmodule CreateFun.System.Healthcheck do
 		env: Mix.env(),
 		date_time: DateTime.utc_now(),
 		project: :create_fun,
-		project_version: CreateFun.Umbrella.Mixfile.project[:version],
+		project_version: CreateFun.Mixfile.project[:version],
 		application: nil,
 		application_version: nil,
 		current_url: nil,
