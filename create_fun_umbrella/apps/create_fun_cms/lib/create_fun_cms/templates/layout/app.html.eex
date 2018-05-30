@@ -34,6 +34,30 @@
                   <span class="nav-label">Home</span>
               <% end %>
             </li>
+            
+            <!-- Admins -->
+            <li class='<%= navigation_active_parent_checker(@conn.path_info, admin_path(@conn, :index)) %>'>
+              <%= link to: admin_path(@conn, :index) do %>
+                  <i class="fas fa-users"></i>
+                  <span class="nav-label">Administrators</span>
+              <% end %>
+            </li>
+            
+            <!-- Artists -->
+            <li class='<%= navigation_active_parent_checker(@conn.path_info, artist_path(@conn, :index)) %>'>
+              <%= link to: artist_path(@conn, :index) do %>
+                  <i class="fab fa-earlybirds"></i>
+                  <span class="nav-label">Artists</span>
+              <% end %>
+            </li>
+
+            <!-- Gallery -->
+            <li class='<%= navigation_active_parent_checker(@conn.path_info, image_path(@conn, :index)) %>'>
+              <%= link to: image_path(@conn, :index) do %>
+                <i class="fas fa-image"></i>
+                <span class="nav-label">Gallery</span>
+              <% end %>
+            </li>
 
             <!-- EXAMPLE FOR NEW MENU ITEM -->
             <!-- Add Eex Syntax -->
@@ -103,7 +127,7 @@
 
             <div class="footer">
               <div>
-                &copy; Copyright 2018 YipYip - All rights reserved
+                &copy; Copyright 2018 CreateFun - All rights reserved
                 <span class="right"><%= CreateFun.Mixfile.project[:version] %></span>
               </div>
             </div>

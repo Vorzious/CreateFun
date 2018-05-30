@@ -1,0 +1,110 @@
+<%= form_for @changeset, @action, [multipart: true], fn f -> %>
+
+  <div class="gridbox-title">
+    <h3><%= CreateFunCms.LayoutView.get_form_title(@conn) %> image</h3>
+
+    <!-- Menu Buttons -->
+    <div class="gridbox-tools">
+      <%= link "Cancel", class: "btn btn-white", to: image_path(@conn, :index) %>
+      <%= submit "Save", class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <div class="gridbox-content">
+    <%= if @changeset.action do %>
+        <div class="alert alert-danger alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <p>
+          Oops, something went wrong! Please check the errors below.
+        </p>
+      </div>
+    <% end %>
+
+    
+      <div class="form-group row">
+        <div class="col-2">
+          <%= label f, :title, class: "control-label" %>
+        </div>
+        <div class="col-10">
+          <%= text_input f, :title, class: "form-control" %>
+          <%= error_tag f, :title %>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+    
+      <div class="form-group row">
+        <div class="col-2">
+          <%= label f, :artist_name, class: "control-label" %>
+        </div>
+        <div class="col-10">
+          <%= text_input f, :artist_name, class: "form-control" %>
+          <%= error_tag f, :artist_name %>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+    
+      <div class="form-group row">
+        <div class="col-2">
+          <%= label f, :child_friendly, class: "control-label" %>
+        </div>
+        <div class="col-10">
+          <%= checkbox f, :child_friendly, class: "checkbox" %>
+          <%= error_tag f, :child_friendly %>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+    
+      <div class="form-group row">
+        <div class="col-2">
+          <%= label f, :description, class: "control-label" %>
+        </div>
+        <div class="col-10">
+          <%= textarea f, :description, class: "form-control summernote" %>
+          <%= error_tag f, :description %>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+    
+      <div class="form-group row">
+        <div class="col-2">
+          <%= label f, :art_style, class: "control-label" %>
+        </div>
+        <div class="col-10">
+          <%= text_input f, :art_style, class: "form-control" %>
+          <%= error_tag f, :art_style %>
+        </div>
+      </div>
+      <div class="hr-line-dashed"></div>
+
+      <!-- TODO -->
+      <!-- Preview Image -->
+      <div class="form-group row">
+        <div class="col-2">
+          <%= label f, :image, "Image", class: "control-label" %>
+        </div>
+        <div class="col-10">
+          <%= file_input f, :image, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-2">
+          <%= label f, :approved, "Approve", class: "control-label" %>
+        </div>
+        <div class="col-10">
+          <%= checkbox f, :approved, class: "checkbox" %>
+          <%= error_tag f, :approved %>
+        </div>
+      </div>
+  </div> <!-- gridbox-content -->
+
+  <div class="gridbox-footer">
+
+    <!-- Menu Buttons -->
+    <div class="gridbox-tools">
+      <%= link "Cancel", class: "btn btn-white", to: image_path(@conn, :index) %>
+      <%= submit "Save", class: "btn btn-primary" %>
+    </div>
+  </div>
+
+<% end %>

@@ -43,7 +43,10 @@ defmodule CreateFun.Mixfile do
       {:ueberauth, "~> 0.5.0"},
       {:ueberauth_identity, "~> 0.2.3"},
       {:guardian, "~> 1.0"},
-      {:guardian_db, "~> 1.0"}
+      {:guardian_db, "~> 1.0"},
+      {:arc, "~> 0.8.0"},
+      {:arc_ecto, "~> 0.7.0"},
+      {:arc_gcs, "~> 0.0.2"}
     ]
   end
 

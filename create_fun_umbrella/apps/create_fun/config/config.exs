@@ -39,4 +39,11 @@ config :guardian, Guardian.DB,
   token_types: ["access", "refresh"],
   sweep_interval: 60
 
+config :arc,
+  storage: Arc.Storage.GCS,
+  bucket: "create-fun-storage-bucket"
+
+config :goth,
+  json: "./apps/create_fun/config/keyfile.json" |> Path.expand() |> File.read!
+
 import_config "#{Mix.env}.exs"

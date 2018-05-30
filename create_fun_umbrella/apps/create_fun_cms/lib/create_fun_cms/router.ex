@@ -54,6 +54,10 @@ defmodule CreateFunCms.Router do
 
       resources "/admins", AdminController
       resources "/artists", ArtistController
+      resources "/gallery", ImageController
+      get "/gallery/:id/approve", ImageController, :approve
+      get "/gallery/:id/unapprove", ImageController, :unapprove
+
     end
   end
 
