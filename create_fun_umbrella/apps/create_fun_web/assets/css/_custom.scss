@@ -4,8 +4,7 @@ body, form, ul, table {
   margin-bottom: 20px;
 }
 
-/* Phoenix flash messages */
-.alert:empty { display: none; }
+.alert:empty { display: none !important; }
 
 /* Custom page header */
 .header {
