@@ -53,7 +53,13 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+            <li>
+              <%= link "Login", to: auth_path(@conn, :index) %>
+            </li>
+            /
+            <li>
+              <%= link "Sign Out", to: auth_path(@conn, :delete), method: :delete %>
+            </li>
           </ul>
         </nav>
         <span class="logo"></span>

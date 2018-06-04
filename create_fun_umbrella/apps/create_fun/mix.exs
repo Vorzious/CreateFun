@@ -37,7 +37,16 @@ defmodule CreateFun.Mixfile do
   defp deps do
     [
       {:postgrex, "0.13.5"},
-      {:ecto, "2.2.8"}
+      {:ecto, "2.2.8"},
+      {:comeonin, "~> 4.0"},
+      {:argon2_elixir, "~> 1.2"},
+      {:ueberauth, "~> 0.5.0"},
+      {:ueberauth_identity, "~> 0.2.3"},
+      {:guardian, "~> 1.0"},
+      {:guardian_db, "~> 1.0"},
+      {:arc, "~> 0.8.0"},
+      {:arc_ecto, "~> 0.7.0"},
+      {:arc_gcs, "~> 0.0.2"}
     ]
   end
 

@@ -1,0 +1,37 @@
+defmodule CreateFun.Gallery.Image do
+  use Ecto.Schema
+  import Ecto.Changeset
+  use Arc.Ecto.Schema
+
+
+  schema "images" do
+    field :title, :string
+    field :description, :string
+    field :artist_name, :string
+    field :art_style, :string
+    field :rating, :integer
+    field :rate_count, :integer, default: 0
+    field :image, CreateFun.GalleryImage.Type
+    field :child_friendly, :boolean, default: false
+    field :approved, :boolean, default: false
+
+    timestamps()
+  end
+
+  @doc false
+  def changeset(image, attrs) do
+    image
+    |> cast(attrs, [:title, :artist_name, :child_friendly, :description, :rating, :rate_count, :art_style, :approved])
+    |> validate_required([:title, :child_friendly, :art_style])
+  end
+
+  def changeset_image(image, attrs) do
+    image
+    |> cast_attachments(attrs, [:image])
+  end
+
+  def changeset_approval(image, attrs) do
+    image
+    |> cast(attrs, [:approved])
+  end
+end

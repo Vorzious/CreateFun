@@ -1,0 +1,110 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="gridbox float-e-margins">
+            <div class="gridbox-title">
+                <h3>Show Image</h3>
+                <div class="gridbox-tools">
+                    <%= if(!@image.approved) do %>
+                      <%= link "Approve", to: image_path(@conn, :approve, @image), class: "green" %>
+                    <% else %>
+                      <%= link "Unapprove", to: image_path(@conn, :unapprove, @image), class: "red" %>
+                    <% end %>
+                    <%= link "Edit", to: image_path(@conn, :edit, @image) %>
+                    <%= link "Back", to: image_path(@conn, :index) %>
+                </div>
+            </div>
+            <div class="gridbox-content">
+              <div class="image-preview">
+                <img src='<%= get_image_gcs_url(@image) %>' alt="Image" />
+              </div>
+
+                <table cellpadding="10">
+                        <tr>
+                          <td>
+                            <strong>Approval status:</strong>
+                          </td>
+                          <td>
+                            <%= if @image.approved do %>
+                              <i class="fas fa-check green"></i>
+                            <% else %>
+                              <i class="fas fa-times red"></i>
+                            <% end %>
+                          </td>
+                        </tr>  
+                  
+                        <tr>
+                            <td>
+                                <strong>Title:</strong>
+                            </td>
+                            <td>
+                                <%= @image.title %>
+                            </td>
+                        </tr>
+
+                        <tr>
+                          <td>
+                            <strong>Description:</strong>
+                          </td>
+                          <td>
+                            <%= raw(@image.description) %>
+                          </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>
+                                <strong>Artist name:</strong>
+                            </td>
+                            <td>
+                                <%= @image.artist_name %>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>
+                                <strong>Child friendly:</strong>
+                            </td>
+                            <td>
+                              <%= if @image.child_friendly do %>
+                                <i class="fas fa-check green"></i>
+                              <% else %>
+                                <i class="fas fa-times red"></i>
+                              <% end %>
+                            </td>
+                        </tr>
+                    
+                        <!-- TODO -->
+                        <!-- Convert "rating" to stars -->
+                        <tr>
+                            <td>
+                                <strong>Rating:</strong>
+                            </td>
+                            <td>
+                                <%= @image.rating %>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td>
+                                <strong>Art style:</strong>
+                            </td>
+                            <td>
+                                <%= @image.art_style %>
+                            </td>
+                        </tr>
+                    
+                </table>
+            </div>
+            <div class="gridbox-footer">
+                <div class="gridbox-tools">
+                  <%= if(!@image.approved) do %>
+                    <%= link "Approve", to: image_path(@conn, :approve, @image), class: "green" %>
+                    <% else %>
+                    <%= link "Unapprove", to: image_path(@conn, :unapprove, @image), class: "red" %>
+                  <% end %>
+                  <%= link "Edit", to: image_path(@conn, :edit, @image) %>
+                  <%= link "Back", to: image_path(@conn, :index) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -43,7 +43,9 @@ defmodule CreateFunCms.Mixfile do
       {:phoenix_live_reload, "1.1.3", only: :dev},
       {:gettext, "0.14.1"},
       {:cowboy, "~> 1.0.0"},
-      {:create_fun, in_umbrella: true}
+      {:create_fun, in_umbrella: true},
+      {:ueberauth_identity, "~> 0.2.3"},
+      {:guardian, "~> 1.0"},
     ]
   end
 
