@@ -1,0 +1,153 @@
+
+@media screen and (max-width: 750px){
+    html, body{
+        height: 100%;
+        margin: 0;
+    }
+
+    /* styling for login page */
+    .login-container {
+        display: inline-block;
+        width: 100%;
+        margin: auto;
+        padding: auto;
+        text-align: center;
+    }
+    
+    .login-container h1 {
+        color: red;
+        margin: 20px;
+    }
+    
+    .login-container .fa-user-circle {
+        color: grey;
+    }
+
+    .login-container #login-form label {
+        display: block;
+        
+    }
+
+    .login-container #login-form img {
+        margin-right: 10px;
+    }
+    
+    .login-container input {
+        border: none;
+    }
+    
+    .login-container hr {
+        width: 30%;
+    }
+    
+    .login-container a#reset_pass {
+        text-decoration: none;
+        font-size: 0.8em;
+    }
+
+    .login-container a#register {
+        text-decoration: none;
+        font-size: 1em; 
+        color: orange;
+    }
+    
+    .login-container button {
+        margin: 20px;
+        background-color: orange;
+        border-radius: 25px;
+        padding: 10px;
+        width: 40%;
+        color: white;
+    }
+
+    /* styling for register page */
+    .register-container {
+        text-align: center;
+    }
+
+    /* styling for profile page */
+
+    .profile-container .upper-container {
+        border: 1px solid white;
+        height: auto;
+        background: linear-gradient(to bottom, rgb(83, 83, 83) 50%, rgb(212, 212, 212) 50%);
+        text-align: center;
+    }
+
+    .profile-container .upper-container .profile-buttons{
+        text-align: center;
+        position: relative;
+        margin:5% auto;
+    }
+
+
+   .profile-container .upper-container .profile-buttons img#profile-user{
+       height: 8em;
+       width: 8em;
+       border-radius: 50%;
+       margin: auto;
+       transform: translateX(2em);
+   }
+
+   .profile-container .upper-container .profile-buttons img#profile-edit{
+        transform: translateX(-2em);
+    }
+    .profile-container .upper-container .profile-buttons img#profile-settings{
+      float: right;
+      transform: translateX(0.5em);
+    }
+
+    .profile-container .upper-container .followers a{
+        text-align: center;
+        text-decoration: none;
+        padding: 1em 2em;
+    }
+
+   /* .profile-container .image-container{       
+       display: grid;
+       grid-column-gap: 20px;
+       grid-row-gap: 20px;
+       padding: 10px;
+       border: 1px solid black;
+       grid-template-columns: auto auto auto;
+   } */
+
+   .profile-container .image-container{
+       background-image: url("../img/image-gallery.png");
+       width: 20em;
+       height: 20em;
+       margin: auto;
+       transform: translateY(5em);
+       background-repeat: no-repeat;
+       background-size: cover;
+   }
+
+   /* .profile-container .image-container .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+   } */
+
+
+   /* vrienden profiel styling */
+ 
+
+
+   /* footer styling */
+   .footer{
+    position: absolute;
+    height: 4em;
+    width: 100%;
+    background: rgb(56, 56, 56);
+    bottom: 0;
+    text-align: center;
+   }
+   .footer img{
+       margin: 0 2em;
+       transform: translateY(-1em);
+   }
+
+}
+
