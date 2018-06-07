@@ -13,6 +13,12 @@ defmodule CreateFun.Gallery do
     Repo.all(Image)
   end
 
+  def list_approved_images() do
+    Image
+    |> Image.approved()
+    |> Repo.all()
+  end
+
   def get_image!(id), do: Repo.get!(Image, id)
   def get_image(id), do: Repo.get(Image, id)
 

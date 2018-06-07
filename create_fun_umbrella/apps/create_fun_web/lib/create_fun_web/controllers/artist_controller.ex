@@ -4,9 +4,19 @@ defmodule CreateFunWeb.ArtistController do
   alias CreateFun.Accounts
   alias CreateFun.Accounts.Artist
 
+  def index(conn, _) do
+    artists = Accounts.list_artists()
+
+    conn
+    |> render("index.html", artists: artists)
+  end
+
   def new(conn, _params) do
     changeset = Accounts.change_artist(%Artist{})
-    render(conn, "new.html", changeset: changeset)
+    conn
+    |> put_layout("login.html")
+    |> render("new.html", changeset: changeset)
+    # render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"artist" => artist_params}) do
@@ -16,7 +26,9 @@ defmodule CreateFunWeb.ArtistController do
         |> put_flash(:info, "Account created successfully.")
         |> redirect(to: auth_path(conn, :index))
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        conn
+        |> put_layout("login.html")
+        |> render("new.html", changeset: changeset)
     end
   end
 

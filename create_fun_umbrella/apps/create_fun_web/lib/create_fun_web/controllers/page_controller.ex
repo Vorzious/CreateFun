@@ -1,8 +1,23 @@
 defmodule CreateFunWeb.PageController do
   use CreateFunWeb, :controller
 
+  defp current_user(conn), do: CreateFun.Guardian.Plug.current_resource(conn, key: :artist)
+
   def index(conn, _params) do
-    render conn, "index.html"
+    case current_user(conn) do
+      {:ok, user} ->
+        conn
+        |> redirect(to: page_path(conn, :dashboard))
+      _ ->
+        conn
+        |> put_flash(:error, "Please login!")
+        |> redirect(to: auth_path(conn, :index))
+    end
+  end
+
+  def dashboard(conn, _) do
+    conn
+    |> render("dashboard.html")
   end
 
   def sitemap(conn, _) do

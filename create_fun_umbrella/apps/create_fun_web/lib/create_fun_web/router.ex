@@ -25,14 +25,15 @@ defmodule CreateFunWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/artist", ArtistController, only: [:new, :create]
     get "/sitemap.txt", PageController, :sitemap
     get "/healthcheck", PageController, :healthcheck
-
-    resources "/artist", ArtistController, only: [:new, :create]
 
     # Authentication Zone
     scope "/auth" do
       pipe_through [:auth_auth]
+      # TODO
+      # Add artist
 
       get "/", AuthController, :index
       get "/:provider", AuthController, :request
@@ -51,7 +52,9 @@ defmodule CreateFunWeb.Router do
     scope "/" do
       pipe_through [:auth_access]
 
-      resources "/artist", ArtistController, only: [:edit, :update, :delete, :show]      
+      get "/dashboard", PageController, :dashboard
+      resources "/artist", ArtistController, only: [:index, :edit, :update, :delete, :show]
+      resources "/art", ImageController
     end
   end
 

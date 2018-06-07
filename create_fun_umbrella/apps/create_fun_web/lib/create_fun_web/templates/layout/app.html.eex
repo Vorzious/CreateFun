@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello CreateFun!</title>
+    <title>CreateFun</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/vendor.css") %>">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
 
@@ -54,11 +54,29 @@
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
             <li>
-              <%= link "Login", to: auth_path(@conn, :index) %>
+              <%= link "Home", to: page_path(@conn, :dashboard) %>
             </li>
             /
             <li>
-              <%= link "Sign Out", to: auth_path(@conn, :delete), method: :delete %>
+              <%= link to: artist_path(@conn, :show, current_user(@conn).id) do %>
+                <%= raw(String.capitalize(current_user(@conn).username)) %>
+              <% end %>
+            </li>
+            /
+            <li>
+              <%= link "Upload Art", to: image_path(@conn, :new) %>
+            </li>
+            /
+            <li>
+              <%= link "View Art", to: image_path(@conn, :index) %>
+            </li>
+            /
+            <li>
+              <%= link "View Artists", to: artist_path(@conn, :index) %>
+            </li>
+            /
+            <li>
+              <%= link "Logout", to: auth_path(@conn, :delete), method: :delete %>
             </li>
           </ul>
         </nav>

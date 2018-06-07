@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-12">
+    <div class="gridbox">
+      <div class="gridbox-title">
+        <h3>Listing Art</h3>
+        <div class="gridbox-tools">
+          <%= link "Upload" <> " Art", class: "btn btn-primary btn-xs", to: image_path(@conn, :new) %>
+        </div>
+      </div>
+      <div class="gridbox-content">
+        <table class="table table-striped table-bordered table-hover datatable">
+          <thead>
+            <tr>
+              
+                <th>
+                  Title
+                </th>
+              
+                <th>
+                  Artist name
+                </th>
+              
+                <th>
+                  Rating
+                </th>
+              
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= for image <- @images do %>
+                <tr>
+                
+                  <td class="control-label">
+                    <%= image.title %>
+                  </td>
+                
+                  <td class="control-label">
+                    <%= image.artist_name %>
+                  </td>
+                
+                  <td class="control-label">
+                    <%= image.rating %>
+                  </td>
+                
+                  <td class="text-right">
+                    <span><%= link "Show", to: image_path(@conn, :show, image), class: "btn btn-default btn-xs" %></span>
+                  </td>
+              </tr>
+            <% end %>
+          </tbody>
+          <tfoot>
+            <tr>
+              
+                <th>
+                  Title
+                </th>
+              
+                <th>
+                  Artist name
+                </th>
+
+                <th>
+                  Rating
+                </th>
+              
+              <th></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="gridbox-footer">
+          <div class="gridbox-tools">
+            <%= link "Upload" <> " Art", class: "btn btn-primary btn-xs", to: image_path(@conn, :new) %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

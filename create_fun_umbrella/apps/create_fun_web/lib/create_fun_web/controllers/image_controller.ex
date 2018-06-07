@@ -1,11 +1,11 @@
-defmodule CreateFunCms.ImageController do
-  use CreateFunCms, :controller
+defmodule CreateFunWeb.ImageController do
+  use CreateFunWeb, :controller
 
   alias CreateFun.Gallery
   alias CreateFun.Gallery.Image
 
   def index(conn, _params) do
-    images = Gallery.list_approved_images()
+    images = Gallery.list_images()
     render(conn, "index.html", images: images)
   end
 
@@ -56,35 +56,5 @@ defmodule CreateFunCms.ImageController do
     conn
     |> put_flash(:info, "Image deleted successfully.")
     |> redirect(to: image_path(conn, :index))
-  end
-
-  def approve(conn, %{"id" => id}) do
-    image = Gallery.get_image!(id)
-
-    case (Gallery.update_image_approval(image, %{"approved" => true})) do
-      {:ok, image} ->
-        conn
-        |> put_flash(:info, "Image has been approved and will be shown to the public")
-        |> redirect(to: image_path(conn, :show, image))
-      {:error, %Ecto.Changeset{} = changeset} ->
-        conn
-        |> put_flash(:error, "Something went wrong when trying to approve this image.")
-        |> redirect(to: image_path(conn, :show, image))
-    end
-  end
-
-  def unapprove(conn, %{"id" => id}) do
-    image = Gallery.get_image!(id)
-
-    case (Gallery.update_image_approval(image, %{"approved" => false})) do
-      {:ok, image} ->
-        conn
-        |> put_flash(:info, "Image has been unapproved and will no longer be shown to the public")
-        |> redirect(to: image_path(conn, :show, image))
-      {:error, %Ecto.Changeset{} = changeset} ->
-        conn
-        |> put_flash(:error, "Something went wrong when trying to unapprove this image.")
-        |> redirect(to: image_path(conn, :show, image))
-    end
   end
 end

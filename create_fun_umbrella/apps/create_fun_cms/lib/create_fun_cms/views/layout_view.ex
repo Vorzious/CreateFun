@@ -5,6 +5,11 @@ defmodule CreateFunCms.LayoutView do
     conn.path_info()
   end
 
+  def current_user(conn) do
+    current_user = Guardian.Plug.LoadResource.call(conn, [key: :admin]).private.guardian_admin_resource
+    current_user.username
+  end
+
   def get_page_title(conn) do
     current_page = get_current_path(conn) |> List.last()
 

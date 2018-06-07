@@ -1,0 +1,4 @@
+<!-- FIXME -->
+<%= link "Back", to: image_path(@conn, :index) %>
+<h1><%= @image.title %></h1>
+<img src='<%= get_image_gcs_url(@image) %>' alt="Uploaded Art" />
