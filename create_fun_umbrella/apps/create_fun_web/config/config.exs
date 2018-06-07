@@ -26,6 +26,13 @@ config :create_fun_web, CreateFunWeb.Auth.Pipeline.Auth,
   module: CreateFun.Guardian,
   error_handler: CreateFunWeb.Auth.ErrorHandler
 
+config :create_fun_web, CreateFunWeb.Auth.Pipeline.Reset,
+  module: CreateFun.Guardian,
+  error_handler: CreateFunWeb.Auth.ErrorHandler
+config :create_fun_web, CreateFunWeb.Auth.Pipeline.ResetCallback,
+  module: CreateFun.Guardian,
+  error_handler: CreateFunWeb.Auth.ErrorHandler
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

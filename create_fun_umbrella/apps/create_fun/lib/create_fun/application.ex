@@ -14,6 +14,7 @@ defmodule CreateFun.Application do
 
     Supervisor.start_link([
       supervisor(CreateFun.Repo, []),
+      worker(Guardian.DB.Token.SweeperServer, [])
     ], strategy: :one_for_one, name: CreateFun.Supervisor)
   end
 end

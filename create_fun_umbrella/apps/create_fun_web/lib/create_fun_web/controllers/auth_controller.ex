@@ -50,7 +50,7 @@ defmodule CreateFunWeb.AuthController do
         conn
         |> Guardian.Plug.sign_in(resource, %{}, [key: :artist, permissions: %{artist: GPermissions.max()}])
         |> put_flash(:info, "Successfully authenticated.")
-        |> redirect(to: page_path(conn, :index))
+        |> redirect(to: page_path(conn, :dashboard))
       {:error, _message} ->
         conn
         |> put_flash(:error, "Failed to authenticate.")
@@ -65,13 +65,13 @@ defmodule CreateFunWeb.AuthController do
   end
 
   def identify_callback(conn, %{"user" => user_params}) do
-    # guardian_opts = [ttl: {3, :hours}, token_type: "reset", permissions: %{artist: [:password]}]
-    # with %Artist{} = artist <- Accounts.get_artist_by(username: user_params["username"]),
-    #      {:ok, token, _} <- CreateFun.Guardian.encode_and_sign(artist, %{}, guardian_opts)
-          #  mail_opts = [salutation: Human.salutation(artist), token: token, layout: {CreateFunWeb.LayoutView, "mail.html"}],
-          #  html = render_to_string(MailView, "artist_reset.html", mail_opts),
-          #  txt = render_to_string(MailView, "artist_reset.txt", Keyword.delete(mail_opts, :layout)),
-          #  %Aws.Ses{} = email <- Aws.Ses.build_email(artist, "CreateFun Artist password reset!", html, txt),
+    # guardian_opts = [ttl: {3, :hours}, token_type: "reset", permissions: %{admin: [:password]}]
+    # with %Admin{} = admin <- Accounts.get_admin_by(username: user_params["username"]),
+    #      {:ok, token, _} <- CreateFun.Guardian.encode_and_sign(admin, %{}, guardian_opts)
+          #  mail_opts = [salutation: Human.salutation(admin), token: token, layout: {CreateFunCms.LayoutView, "mail.html"}],
+          #  html = render_to_string(MailView, "admin_reset.html", mail_opts),
+          #  txt = render_to_string(MailView, "admin_reset.txt", Keyword.delete(mail_opts, :layout)),
+          #  %Aws.Ses{} = email <- Aws.Ses.build_email(admin, "CreateFun Administrator password reset!", html, txt),
         #  {:ok, _} <- email |> Aws.Ses.send_email() do
     #   conn
     #   |> put_flash(:info, "We sent you an email.")

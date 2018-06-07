@@ -1,0 +1,57 @@
+<!-- TODO -->
+<!-- 
+  Add descriptions so the uploader knows exactly what to write where
+ -->
+<%= form_for @changeset, @action, [multipart: true], fn f -> %>
+  <%= if @changeset.action do %>
+      <div class="alert alert-danger alert-dismissable">
+      <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+      <p>
+        Oops, something went wrong! Please check the errors below.
+      </p>
+    </div>
+  <% end %>
+
+    <div class="form-group">
+      <%= label f, :title, class: "control-label" %>
+      <%= text_input f, :title, class: "form-control" %>
+      <%= error_tag f, :title %>
+    </div>
+
+    <div class="form-group">
+      <%= label f, :artist_name, class: "control-label" %>
+      <%= text_input f, :artist_name, class: "form-control" %>
+      <%= error_tag f, :artist_name %>
+    </div>
+    
+    <div class="form-group">
+      <%= label f, :child_friendly, class: "control-label" %>
+      <%= checkbox f, :child_friendly, class: "checkbox" %>
+      <%= error_tag f, :child_friendly %>
+    </div>
+
+    <div class="form-group">
+      <%= label f, :description, class: "control-label" %>
+      <%= textarea f, :description, class: "form-control summernote" %>
+      <%= error_tag f, :description %>
+    </div>
+
+    <div class="form-group">
+      <%= label f, :art_style, class: "control-label" %>
+      <%= text_input f, :art_style, class: "form-control" %>
+      <%= error_tag f, :art_style %>
+    </div>
+
+    <!-- TODO -->
+    <!-- Preview Image -->
+    <div class="form-group">
+      <%= label f, :image, "Art", class: "control-label" %>
+      <%= file_input f, :image, class: "form-control" %>
+    </div>
+
+    <!-- Menu Buttons -->
+    <div class="form-group">
+      <%= link "Cancel", class: "btn btn-white", to: page_path(@conn, :index) %>
+      <%= submit "Upload", class: "btn btn-primary" %>
+    </div>
+<% end %>

@@ -12,7 +12,7 @@ config :ueberauth, Ueberauth,
         uid_field: :username,
         nickname_field: :username
     ]},
-    identity_artist: {Ueberauth.Strategy.Identity,[
+    identity_web: {Ueberauth.Strategy.Identity,[
         callback_methods: ["POST"],
         param_nesting: "user",
         request_path: "/auth/identity",
@@ -30,7 +30,7 @@ config :create_fun, CreateFun.Guardian,
   token_ttl: %{"access" => {1, :day}, "refresh" => {30, :days}},
   permissions: %{
     admin: [:admins, :artists],
-    artist: []
+    artist: [:index]
   }
 
 config :guardian, Guardian.DB,
