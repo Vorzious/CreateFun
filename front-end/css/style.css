@@ -95,10 +95,14 @@
    .profile-container .upper-container .profile-buttons img#profile-edit{
         transform: translateX(-2em);
     }
-    .profile-container .upper-container .profile-buttons img#profile-settings{
+    .profile-container .upper-container .profile-buttons img#profile-settings,
+    .profile-container .upper-container .profile-buttons img#friend-add
+    {
       float: right;
       transform: translateX(-2em);
     }
+
+    
 
     .profile-container .upper-container .profile-buttons .followers a{
         text-align: center;
