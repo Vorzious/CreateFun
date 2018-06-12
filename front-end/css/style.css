@@ -145,6 +145,114 @@
    }
 
 
+   /* home container */
+   .home-header{
+       height: 5em;
+       width: auto;
+       background-color: rgb(53, 53, 53);  
+   }
+
+
+   .home-container{
+       display: grid;
+       padding: 3em 3em;
+       grid-template-columns: repeat(2, 1fr);
+       grid-template-rows: auto;
+       grid-column-gap: 1em;
+       grid-row-gap: 1em;
+       grid-template-areas: 
+        "main main"
+        "sub1 sub2"
+        "sub3 sub4"
+   }
+
+   .home-container .home-area1{
+       position: relative;
+       grid-area: main;
+       border: 1px solid black;
+       height: 20em;
+       border: 1px solid black;
+       background-image: url("../img/fake_data_img/1.jpg");
+       background-size: cover;
+   }
+
+   .home-container .home-area1 p {
+       position: absolute;
+       z-index: 2;
+       background: rgba(255, 255, 255, 0.5);
+       border-radius: 25px;
+       margin: auto;
+       bottom: 1em;
+       width: 100%;
+       text-align: center;
+   }
+
+
+   .home-container .small-img {
+    height: 15em;
+    width: 15em;
+    border: 1px solidblack;
+    position: relative;
+   }
+
+   .home-container .small-img p {
+    position: absolute;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    margin: auto;
+    bottom: 1em;
+    width: 100%;
+    text-align: center;
+   }
+
+   .home-container .home-area2{
+       grid-area: sub1;
+       background-image: url("../img/fake_data_img/2.jpg");
+       background-size: cover;
+   }
+
+   .home-container .large-img{
+       position: relative;
+       height: 18em;
+       width: 18em;
+       border: 1px solid black; 
+   }
+
+   .home-container .large-img p {
+    position: absolute;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    margin: auto;
+    bottom: 1em;
+    width: 100%;
+    text-align: center;
+   }
+
+
+   .home-container .home-area3{
+       grid-area: sub2;
+       background-image: url("../img/fake_data_img/3.jpg");
+       background-size: cover;
+   }
+
+   .home-container .home-area4{
+       grid-area: sub3;
+       background-image: url("../img/fake_data_img/4.jpg");
+       background-size: cover;
+   }
+
+   .home-container .home-area5{
+       grid-area: sub4;
+       background-image: url("../img/fake_data_img/5.jpg");
+       background-size: cover;
+   }
+
+
+
+
+
    /* footer styling */
    .footer{
     position: fixed;
