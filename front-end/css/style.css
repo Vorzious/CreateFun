@@ -197,13 +197,18 @@
 
    .home-container .small-img p {
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 25px;
     margin: auto;
     bottom: 1em;
     width: 100%;
     text-align: center;
+   }
+
+   .home-container i{
+       float: right;
+       padding-right: 2em;
    }
 
    .home-container .home-area2{
@@ -262,6 +267,7 @@
     bottom: 0;
     left: 0;
     text-align: center;
+    z-index: 2;
    }
    .footer img{
        margin: 0 2em;
