@@ -172,8 +172,11 @@
        border: 1px solid black;
        height: 20em;
        border: 1px solid black;
-       background-image: url("../img/fake_data_img/1.jpg");
-       background-size: cover;
+   }
+
+   .home-container img{
+       height: 100%;
+       width: 100%;
    }
 
    .home-container .home-area1 p {
@@ -213,8 +216,6 @@
 
    .home-container .home-area2{
        grid-area: sub1;
-       background-image: url("../img/fake_data_img/2.jpg");
-       background-size: cover;
    }
 
    .home-container .large-img{
@@ -238,24 +239,15 @@
 
    .home-container .home-area3{
        grid-area: sub2;
-       background-image: url("../img/fake_data_img/3.jpg");
-       background-size: cover;
    }
 
    .home-container .home-area4{
        grid-area: sub3;
-       background-image: url("../img/fake_data_img/4.jpg");
-       background-size: cover;
    }
 
    .home-container .home-area5{
        grid-area: sub4;
-       background-image: url("../img/fake_data_img/5.jpg");
-       background-size: cover;
    }
-
-
-
 
 
    /* footer styling */
