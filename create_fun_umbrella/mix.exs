@@ -4,7 +4,7 @@ defmodule CreateFun.Umbrella.Mixfile do
   def project do
     [
       apps_path: "apps",
-      version: "0.0.1",
+      version: "1.0.0",
       build_embedded: (Mix.env == :prod || Mix.env == :staging),
       start_permanent: (Mix.env == :prod || Mix.env == :staging),
       deps: deps()

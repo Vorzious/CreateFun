@@ -1,0 +1,124 @@
+<div class="login-container">
+  <h1>Account Aanmaken</h1>
+
+<%= form_for @changeset, @action, fn f -> %>
+  <div class="form-group">
+    <div class="form-subgroup">
+      <i class="fas fa-user"></i>
+
+      <div class="inputs">
+        <%= text_input f, :username, [class: "form-control", placeholder: "Gebruikersnaam"] %>
+        <%= error_tag f, :username %>
+      </div>
+    </div>
+  </div>
+  <hr>
+  
+  <div class="form-group">
+    <div class="form-subgroup">
+      <i class="fas fa-key"></i>
+
+      <div class="inputs">
+        <%= password_input f, :password, [class: "form-control", placeholder: "Wachtwoord"] %>
+        <%= error_tag f, :password %>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <div class="form-group">
+    <div class="form-subgroup">
+      <i class="fas fa-key"></i>
+
+      <div class="inputs">
+        <%= password_input f, :password_confirmation, [class: "form-control", placeholder: "Herhaal Wachtwoord"] %>
+        <%= error_tag f, :password_confirmation %>
+      </div>
+    </div>
+  </div>
+  <hr>
+  
+   <div class="form-group">
+     <div class="form-subgroup">
+      <i class="fas fa-user-tag"></i> 
+
+       <div class="inputs">
+         <%= text_input f, :first_name, [class: "form-control", placeholder: "Voornaam"] %>
+         <%= error_tag f, :first_name %>
+       </div>
+     </div>
+   </div>
+  <hr>
+
+   <div class="form-group">
+     <div class="form-subgroup">
+      <i class="fas fa-user-tag"></i>
+
+       <div class="inputs">
+         <%= text_input f, :last_name, [class: "form-control", placeholder: "Achternaam"] %>
+         <%= error_tag f, :last_name %>
+       </div>
+     </div>
+   </div>
+  <hr>
+  
+  <div class="form-group">
+    <div class="form-subgroup">
+      <i class="fas fa-envelope"></i>
+
+      <div class="inputs">
+        <%= text_input f, :email, [class: "form-control", placeholder: "E-mail"] %>
+        <%= error_tag f, :email %>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+   <div class="form-group">
+     <div class="form-subgroup">
+        <i class="fas fa-phone"></i> 
+      
+       <div class="inputs">
+         <%= text_input f, :phone, [class: "form-control", placeholder: "Telefoonnummer"] %>
+         <%= error_tag f, :phone %>
+       </div>
+     </div>
+   </div>
+  <hr>
+
+   <div class="form-group">
+     <div class="form-subgroup">
+      <i class="fas fa-link"></i> 
+
+       <div class="inputs">
+         <%= text_input f, :website, [class: "form-control", placeholder: "Website"] %>
+         <%= error_tag f, :website %>
+       </div>
+     </div>
+   </div>
+  <hr>
+
+   <div class="form-group">
+     <div class="form-subgroup">
+      <i class="fas fa-hand-holding-heart"></i> 
+
+       <div class="inputs">
+         <%= text_input f, :art_style, [class: "form-control", placeholder: "Stijlkunst"] %>
+         <%= error_tag f, :art_style %>
+       </div>
+     </div>
+   </div>
+  <hr>
+
+   <label class="big">
+     <%= submit "Akkoord" %>
+   </label>
+
+   <br>
+
+   <%= link to: auth_path(@conn, :index) do %>
+    <small>Annuleer</small>
+   <% end %>
+
+  <% end %>
+</div> <!-- /container -->

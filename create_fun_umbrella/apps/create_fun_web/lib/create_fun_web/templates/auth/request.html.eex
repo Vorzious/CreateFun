@@ -1,0 +1,40 @@
+<div class="login-container">
+  <h1>The Ibis Gallery</h1>
+  <i class="fas fa-user-circle fa-7x"></i>
+  <br>
+
+  <%= form_for @changeset, @action, [id: "login-form"],  fn f -> %>
+    <div class="form-group">
+      <div class="form-subgroup">
+        <img src="<%= static_path(@conn, "/images/user.png") %>" alt="User image" />
+  
+        <div class="inputs">
+          <%= text_input f, :username, [id: "gebruikersnaam", placeholder: "Gebruikersnaam"]  %>
+        </div>
+      </div>
+    </div>    
+    
+    <hr>
+
+    <div class="form-group">
+      <div class="form-subgroup">
+        <img src="<%= static_path(@conn, "/images/lock.png") %>" alt="Lock image" />
+        <div class="inputs">
+          <%= password_input f, :password, [id: "wachtwoord", placeholder: "Wachtwoord"]  %>
+        </div>
+      </div>
+    </div>
+    
+    <hr>
+
+  
+    <label>
+      <%= submit "Inloggen" %>
+    </label>
+
+    <%= link to: artist_path(@conn, :new) do %>
+      <small>Create Account</small>
+    <% end %>
+
+  <% end %>
+</div>

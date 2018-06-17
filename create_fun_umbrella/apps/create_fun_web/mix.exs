@@ -4,7 +4,7 @@ defmodule CreateFunWeb.Mixfile do
   def project do
     [
       app: :create_fun_web,
-      version: "0.0.1",
+      version: "1.0.0",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
       deps_path: "../../deps",
@@ -44,7 +44,9 @@ defmodule CreateFunWeb.Mixfile do
       {:phoenix_live_reload, "1.1.3", only: :dev},
       {:gettext, "0.14.1"},
       {:create_fun, in_umbrella: true},
-      {:cowboy, "~> 1.0.0"}
+      {:cowboy, "~> 1.0.0"},
+      {:ueberauth_identity, "~> 0.2.3"},
+      {:guardian, "~> 1.0"},
     ]
   end
 

@@ -4,7 +4,7 @@ defmodule CreateFunCms.Mixfile do
   def project do
     [
       app: :create_fun_cms,
-      version: "0.0.1",
+      version: "1.0.0",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
       deps_path: "../../deps",
@@ -43,7 +43,9 @@ defmodule CreateFunCms.Mixfile do
       {:phoenix_live_reload, "1.1.3", only: :dev},
       {:gettext, "0.14.1"},
       {:cowboy, "~> 1.0.0"},
-      {:create_fun, in_umbrella: true}
+      {:create_fun, in_umbrella: true},
+      {:ueberauth_identity, "~> 0.2.3"},
+      {:guardian, "~> 1.0"},
     ]
   end
 

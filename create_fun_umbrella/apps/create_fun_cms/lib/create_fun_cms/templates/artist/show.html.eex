@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="gridbox float-e-margins">
+            <div class="gridbox-title">
+                <h3>Show Artist</h3>
+                <div class="gridbox-tools">
+                    <%= link "Edit", to: artist_path(@conn, :edit, @artist) %>
+                    <%= link "Back", to: artist_path(@conn, :index) %>
+                </div>
+            </div>
+            <div class="gridbox-content">
+                <table cellpadding="10">
+                  <tr>
+                    <td>
+                      <strong>Username:</strong>
+                    </td>
+                    <td>
+                      <%= @artist.username %>
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td>
+                      <strong>First name:</strong>
+                    </td>
+                    <td>
+                      <%= @artist.first_name %>
+                    </td>
+                  </tr>
+              
+                  <tr>
+                    <td>
+                      <strong>Last name:</strong>
+                    </td>
+                    <td>
+                      <%= @artist.last_name %>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <strong>Email:</strong>
+                    </td>
+                    <td>
+                      <%= @artist.email %>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <strong>Phone:</strong>
+                    </td>
+                    <td>
+                      <%= @artist.phone %>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <strong>Website:</strong>
+                    </td>
+                    <td>
+                      <%= @artist.website %>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <strong>Art style:</strong>
+                    </td>
+                    <td>
+                      <%= @artist.art_style %>
+                    </td>
+                  </tr>    
+                </table>
+            </div>
+            <div class="gridbox-footer">
+                <div class="gridbox-tools">
+                    <%= link "Edit", to: artist_path(@conn, :edit, @artist) %>
+                    <%= link "Back", to: artist_path(@conn, :index) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

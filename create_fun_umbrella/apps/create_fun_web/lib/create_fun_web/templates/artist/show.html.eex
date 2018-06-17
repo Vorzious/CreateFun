@@ -1,0 +1,44 @@
+<div class="profile-container">
+
+  <div class="upper-container">
+    <div class="profile-buttons">
+      <%= link to: artist_path(@conn, :show, @artist) do %>
+        <img src="<%= static_path(@conn, "/images/profile.jpg") %>" alt="profile" id="profile-user" />
+      <% end %>
+
+      <%= link to: artist_path(@conn, :edit, @artist) do %>
+        <img src="<%= static_path(@conn, "/images/profile-edit.png") %>" alt="edit" id="profile-edit" />
+      <% end %>
+
+      <%= link to: auth_path(@conn, :delete), method: :delete do %>
+        <img src="<%= static_path(@conn, "/images/settings.png") %>" alt="settings" id="profile-settings" />
+      <% end %>
+      
+      <h3><%= String.capitalize(@artist.username) %></h3>
+      <p style="padding: 0 50px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic explicabo vero quis, fugiat cum officiis nulla fuga excepturi
+        esse voluptates aut debitis mollitia, dolorem tenetur velit odit quas dolore. Ad!</p>
+      <div class="followers">
+        <a href="#">
+          <img src="<%= static_path(@conn, "/images/followers.png") %>" alt="followers">
+          0 volgers
+        </a>
+        
+        <a href="#">
+          <img src="<%= static_path(@conn, "/images/following.png") %>" alt="following" />
+          0 volgend
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="image-container">
+    <%= for art <- @images do %>
+      <%= link to: image_path(@conn, :show, art) do %>
+        <div class="grid-item">
+          <img src='<%= get_image_gcs_url(art) %>' alt="Image" />
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

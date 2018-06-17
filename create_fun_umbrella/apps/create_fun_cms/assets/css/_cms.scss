@@ -12,6 +12,23 @@
 	float: left;
 }
 
+.green{
+  color: $success-color !important;
+}
+
+.red{
+  color: $fault-color !important;
+}
+
+.image-preview{
+  max-width: 500px;
+
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .menu-active{
 	span, i, svg{
 		color: $primary-color;

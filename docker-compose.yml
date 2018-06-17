@@ -21,6 +21,7 @@ services:
             POSTGRES_PASSWORD: supersecret
             POSTGRES_DATABASE: postgres_create_fun
             SECRET_KEY_BASE_ENDPOINT: YtOkarOMtsv+HB8ghxSnp+lVM8FCp88qlouZq/rvSX3Eka3xm+1t5Ln3PrrYlM4t_create_fun
+            GUARDIAN_SECRET: uYAdMBxsgLD0DI44Hp/64IbqEQrmzDRKVXZglp5JJ+C6SFNL52hPXFBMYLMuYo9q
         depends_on:
             - postgres_create_fun
         command: /bin/bash /application/docker_files/docker_command.sh

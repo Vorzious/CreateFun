@@ -1,0 +1,20 @@
+<h1 class="txt-center"><%= @image.title %></h1>
+
+<div class="detail-image-container e-center margin-top">
+  <%= link "Terug", to: page_path(@conn, :dashboard)%>
+  <img src='<%= get_image_gcs_url(@image) %>' alt="Uploaded Art" />
+  <div class="info-group">
+    <p class="left">
+      <strong><%= @image.artist_name %></strong>
+    </p>
+  
+    <p class="right">
+      <%= @image.art_style %>
+    </p>
+  </div>
+
+  <p>
+    <%= raw(@image.description) %>
+  </p>
+</div>
+

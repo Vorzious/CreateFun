@@ -7,7 +7,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello CreateFun!</title>
+    <title>CreateFun</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/vendor.css") %>">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
 
@@ -49,24 +50,31 @@
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
+    <%= render @view_module, @view_template, assigns %>
 
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
+    <div class="footer">
+      <%= link to: page_path(@conn, :dashboard) do %>
+        <img src="<%= static_path(@conn, "/images/home.png") %>" alt="home" />
+      <% end %>
 
-    </div> <!-- /container -->
+      <a href="#">
+        <img src="<%= static_path(@conn, "/images/heart.png") %>" alt="heart" />
+      </a>
+
+      <%= link to: image_path(@conn, :new), class: "high" do %>
+        <img src="<%= static_path(@conn, "/images/add.png") %>" alt="add" />
+      <% end %>
+
+      <%= link to: artist_path(@conn, :show, current_user(@conn).id) do %>
+        <img src="<%= static_path(@conn, "/images/user2.png") %>" alt="user" />
+      <% end %>
+
+      <a href="#">
+        <img src="<%= static_path(@conn, "/images/search.png") %>" alt="search" />
+      </a>
+    </div>
+
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

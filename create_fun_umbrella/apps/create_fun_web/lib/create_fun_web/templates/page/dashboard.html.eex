@@ -1,0 +1,12 @@
+<div class="home-header">
+</div>
+<div class="home-container">
+  <%= for art <- @images do %>
+    <div class="home-image">
+      <i class="far fa-heart"></i>
+      <%= link to: image_path(@conn, :show, art) do %>
+        <img src='<%= get_image_gcs_url(art) %>' alt="Image" />
+      <% end %>
+    </div>
+  <% end %>
+</div>
