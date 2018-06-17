@@ -1,57 +1,83 @@
-<!-- TODO -->
-<!-- 
-  Add descriptions so the uploader knows exactly what to write where
- -->
-<%= form_for @changeset, @action, [multipart: true], fn f -> %>
-  <%= if @changeset.action do %>
-      <div class="alert alert-danger alert-dismissable">
-      <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-      <p>
-        Oops, something went wrong! Please check the errors below.
-      </p>
+<div class="login-container">
+  <h1>Ibis Gallery Upload</h1>
+
+  <%= form_for @changeset, @action, [multipart: true], fn f -> %>
+    <div class="form-group">
+      <div class="form-subgroup">
+        <i class="fas fa-bookmark"></i>
+
+        <div class="inputs">
+          <%= text_input f, :title, [class: "form-control", placeholder: "Titel"] %>
+          <%= error_tag f, :title %>
+        </div>
+      </div>
     </div>
-  <% end %>
+    <hr>
 
     <div class="form-group">
-      <%= label f, :title, class: "control-label" %>
-      <%= text_input f, :title, class: "form-control" %>
-      <%= error_tag f, :title %>
+      <div class="form-subgroup">
+        <i class="fas fa-user"></i>
+
+        <div class="inputs">
+          <%= text_input f, :artist_name, [class: "form-control", placeholder: "Artiesten Naam"] %>
+          <%= error_tag f, :artist_name %>
+        </div>
+      </div>
     </div>
+    <hr>
 
     <div class="form-group">
-      <%= label f, :artist_name, class: "control-label" %>
-      <%= text_input f, :artist_name, class: "form-control" %>
-      <%= error_tag f, :artist_name %>
+      <div class="form-subgroup">
+        <i class="fas fa-child"></i>
+
+        <div class="inputs">
+          <%= checkbox f, :child_friendly, [class: "checkbox", placeholder: "Kindvriendelijkheid"] %>
+          <%= error_tag f, :child_friendly %>
+        </div>
+      </div>
     </div>
+    <hr>
+
+    <div class="form-group">
+      <div class="form-subgroup">
+      <i class="fas fa-hand-holding-heart"></i> 
+
+      <div class="inputs">
+        <%= text_input f, :art_style, [class: "form-control", placeholder: "Stijlkunst"] %>
+        <%= error_tag f, :art_style %>
+      </div>
+      </div>
+    </div>
+    <hr>
+
+    <div class="form-group">
+      <div class="form-subgroup">
+        <i class="fas fa-image"></i>
+
+        <div class="inputs">
+          <%= file_input f, :image, [class: "form-control", placeholder: "Afbeelding"] %>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <div class="form-group">
+      <div class="form-subgroup">
+        <i class="fas fa-file-alt"></i>
     
-    <div class="form-group">
-      <%= label f, :child_friendly, class: "control-label" %>
-      <%= checkbox f, :child_friendly, class: "checkbox" %>
-      <%= error_tag f, :child_friendly %>
+        <div class="inputs">
+          <%= textarea f, :description, [class: "form-control summernote", placeholder: "Beschrijving"] %>
+            <%= error_tag f, :description %>
+        </div>
+      </div>
     </div>
+  
+    <label class="big">
+      <%= submit "Upload" %>
+    </label>
 
-    <div class="form-group">
-      <%= label f, :description, class: "control-label" %>
-      <%= textarea f, :description, class: "form-control summernote" %>
-      <%= error_tag f, :description %>
-    </div>
-
-    <div class="form-group">
-      <%= label f, :art_style, class: "control-label" %>
-      <%= text_input f, :art_style, class: "form-control" %>
-      <%= error_tag f, :art_style %>
-    </div>
-
-    <!-- TODO -->
-    <!-- Preview Image -->
-    <div class="form-group">
-      <%= label f, :image, "Art", class: "control-label" %>
-      <%= file_input f, :image, class: "form-control" %>
-    </div>
-
-    <!-- Menu Buttons -->
-    <div class="form-group">
-      <%= link "Cancel", class: "btn btn-white", to: page_path(@conn, :index) %>
-      <%= submit "Upload", class: "btn btn-primary" %>
-    </div>
-<% end %>
+    <%= link to: page_path(@conn, :index), class: "margin-bottom" do %>
+      <small class="margin-bottom">Annuleer</small>
+    <% end %>
+  <% end %>
+</div>

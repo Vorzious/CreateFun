@@ -65,23 +65,7 @@ defmodule CreateFunWeb.AuthController do
   end
 
   def identify_callback(conn, %{"user" => user_params}) do
-    # guardian_opts = [ttl: {3, :hours}, token_type: "reset", permissions: %{admin: [:password]}]
-    # with %Admin{} = admin <- Accounts.get_admin_by(username: user_params["username"]),
-    #      {:ok, token, _} <- CreateFun.Guardian.encode_and_sign(admin, %{}, guardian_opts)
-          #  mail_opts = [salutation: Human.salutation(admin), token: token, layout: {CreateFunCms.LayoutView, "mail.html"}],
-          #  html = render_to_string(MailView, "admin_reset.html", mail_opts),
-          #  txt = render_to_string(MailView, "admin_reset.txt", Keyword.delete(mail_opts, :layout)),
-          #  %Aws.Ses{} = email <- Aws.Ses.build_email(admin, "CreateFun Administrator password reset!", html, txt),
-        #  {:ok, _} <- email |> Aws.Ses.send_email() do
-    #   conn
-    #   |> put_flash(:info, "We sent you an email.")
-    #   |> redirect(to: auth_path(conn, :index))
-    # else
-    #   _ ->
-    #     conn
-    #     |> put_flash(:error, "Something went wrong, we couldn't send a reset link.")
-    #     |> redirect(to: auth_path(conn, :identify))
-    # end
+
   end
 
   def reset(conn, _params) do

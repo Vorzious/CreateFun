@@ -5,7 +5,7 @@ defmodule CreateFunCms.ImageController do
   alias CreateFun.Gallery.Image
 
   def index(conn, _params) do
-    images = Gallery.list_approved_images()
+    images = Gallery.list_images()
     render(conn, "index.html", images: images)
   end
 

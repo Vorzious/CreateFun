@@ -1,39 +1,40 @@
-<div class="row">
-  <div class="col-xs-12 col-sm-4 offset-sm-4">
-    <div class="gridbox float-e-margins">
-      <div class="gridbox-content">
+<div class="login-container">
+  <h1>The Ibis Gallery</h1>
+  <i class="fas fa-user-circle fa-7x"></i>
+  <br>
 
-
-        <%= form_for @changeset, @action, fn f -> %>
-          <h3>Login</h3>
-          <div class="form-group row">
-            <div class="col-12">
-              <%= text_input f, :username, [class: "form-control", placeholder: dgettext("inputs", "Username")]  %>
-                <%= error_tag f, :username %>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-12">
-              <%= password_input f, :password, [class: "form-control", placeholder: dgettext("inputs", "Password")]  %>
-                <%= error_tag f, :password %>
-            </div>
-          </div>
-      </div>
-
-      <div class="form-group row login-btn">
-        <div class="col-6 text-right forgot-pass">
-          <%= link to: artist_path(@conn, :new) do %>
-            <small>Create Account</small>
-          <% end %>
-        </div>
-        <div class="col-6">
-          <%= submit dgettext("inputs", "Login"), class: "btn btn-primary block full-width m-b" %>
+  <%= form_for @changeset, @action, [id: "login-form"],  fn f -> %>
+    <div class="form-group">
+      <div class="form-subgroup">
+        <img src="<%= static_path(@conn, "/images/user.png") %>" alt="User image" />
+  
+        <div class="inputs">
+          <%= text_input f, :username, [id: "gebruikersnaam", placeholder: "Gebruikersnaam"]  %>
         </div>
       </div>
-      <% end %>
+    </div>    
+    
+    <hr>
 
-
+    <div class="form-group">
+      <div class="form-subgroup">
+        <img src="<%= static_path(@conn, "/images/lock.png") %>" alt="Lock image" />
+        <div class="inputs">
+          <%= password_input f, :password, [id: "wachtwoord", placeholder: "Wachtwoord"]  %>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+    
+    <hr>
+
+  
+    <label>
+      <%= submit "Inloggen" %>
+    </label>
+
+    <%= link to: artist_path(@conn, :new) do %>
+      <small>Create Account</small>
+    <% end %>
+
+  <% end %>
 </div>

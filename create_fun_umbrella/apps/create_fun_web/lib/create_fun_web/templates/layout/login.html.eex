@@ -9,24 +9,14 @@
   <meta name="author" content="">
 
   <title>Login | CreateFun Artist</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <link rel="stylesheet" href="<%= static_path(@conn, "/css/vendor.css") %>">
   <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
 </head>
 
-<body class="gray-bg">
-  <div class="middle-box text-center loginscreen">
-    <div>
-      <div>
-        <div class="image-container">
-          <img alt="Image" src="" />
-        </div>
-        <p>Login with your CreateFun Artist account</p>
-      </div>
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
-    </div>
-  </div>
+<body>
+  <%= render @view_module, @view_template, assigns %>
+  
   <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
 </body>
 

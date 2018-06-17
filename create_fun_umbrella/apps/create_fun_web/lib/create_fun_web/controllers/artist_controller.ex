@@ -16,7 +16,6 @@ defmodule CreateFunWeb.ArtistController do
     conn
     |> put_layout("login.html")
     |> render("new.html", changeset: changeset)
-    # render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"artist" => artist_params}) do
@@ -32,9 +31,13 @@ defmodule CreateFunWeb.ArtistController do
     end
   end
 
+  # TODO
+  # Show uploads
   def show(conn, %{"id" => id}) do
     artist = Accounts.get_artist!(id)
-    render(conn, "show.html", artist: artist)
+    images = CreateFun.Gallery.list_approved_images()
+    
+    render(conn, "show.html", artist: artist, images: images)
   end
 
   def edit(conn, %{"id" => id}) do
