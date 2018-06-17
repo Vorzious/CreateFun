@@ -1,93 +1,44 @@
-<!-- TODO -->
-<!-- Everything -->
+<div class="profile-container">
 
+  <div class="upper-container">
+    <div class="profile-buttons">
+      <%= link to: artist_path(@conn, :show, @artist) do %>
+        <img src="<%= static_path(@conn, "/images/profile.jpg") %>" alt="profile" id="profile-user" />
+      <% end %>
 
-<!-- TODO -->
-<!-- Add uploaded art -->
-<div class="row">
-  <div class="col-lg-12">
-    <div class="gridbox float-e-margins">
-      <div class="gridbox-title">
-        <h3><%= String.capitalize(@artist.username) %></h3>
-        <%= if(@artist.username == current_user(@conn).username) do %>
-          <div class="gridbox-tools">
-            <%= link "Edit", to: artist_path(@conn, :edit, @artist) %>
-          </div>
-        <% end %>
-      </div>
-      <div class="gridbox-content">
-        <table cellpadding="10">
-          <tr>
-            <td>
-              <strong>Username:</strong>
-            </td>
-            <td>
-              <%= @artist.username %>
-            </td>
-          </tr>
+      <%= link to: artist_path(@conn, :edit, @artist) do %>
+        <img src="<%= static_path(@conn, "/images/profile-edit.png") %>" alt="edit" id="profile-edit" />
+      <% end %>
 
-          <tr>
-            <td>
-              <strong>First name:</strong>
-            </td>
-            <td>
-              <%= @artist.first_name %>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <strong>Last name:</strong>
-            </td>
-            <td>
-              <%= @artist.last_name %>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <strong>Email:</strong>
-            </td>
-            <td>
-              <%= @artist.email %>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <strong>Phone:</strong>
-            </td>
-            <td>
-              <%= @artist.phone %>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <strong>Website:</strong>
-            </td>
-            <td>
-              <%= @artist.website %>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <strong>Art style:</strong>
-            </td>
-            <td>
-              <%= @artist.art_style %>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="gridbox-footer">
-        <%= if(@artist.username == current_user(@conn).username) do %>
-          <div class="gridbox-tools">
-            <%= link "Edit", to: artist_path(@conn, :edit, @artist) %>
-          </div>
-        <% end %>
+      <%= link to: auth_path(@conn, :delete), method: :delete do %>
+        <img src="<%= static_path(@conn, "/images/settings.png") %>" alt="settings" id="profile-settings" />
+      <% end %>
+      
+      <h3><%= String.capitalize(@artist.username) %></h3>
+      <p style="padding: 0 50px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic explicabo vero quis, fugiat cum officiis nulla fuga excepturi
+        esse voluptates aut debitis mollitia, dolorem tenetur velit odit quas dolore. Ad!</p>
+      <div class="followers">
+        <a href="#">
+          <img src="<%= static_path(@conn, "/images/followers.png") %>" alt="followers">
+          0 volgers
+        </a>
+        
+        <a href="#">
+          <img src="<%= static_path(@conn, "/images/following.png") %>" alt="following" />
+          0 volgend
+        </a>
       </div>
     </div>
   </div>
+
+  <div class="image-container">
+    <%= for art <- @images do %>
+      <%= link to: image_path(@conn, :show, art) do %>
+        <div class="grid-item">
+          <img src='<%= get_image_gcs_url(art) %>' alt="Image" />
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
 </div>

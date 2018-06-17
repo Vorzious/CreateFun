@@ -16,8 +16,10 @@ defmodule CreateFunWeb.PageController do
   end
 
   def dashboard(conn, _) do
+    images = CreateFun.Gallery.list_approved_images()
+    
     conn
-    |> render("dashboard.html")
+    |> render("dashboard.html", images: images)
   end
 
   def sitemap(conn, _) do
