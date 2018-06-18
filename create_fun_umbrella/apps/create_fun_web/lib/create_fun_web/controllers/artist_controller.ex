@@ -32,10 +32,13 @@ defmodule CreateFunWeb.ArtistController do
   end
 
   # TODO
-  # Show uploads
+  # Show uploads of the artist. Not all
+  # Add association to image schema
+  # Add association to artist (has_many)
   def show(conn, %{"id" => id}) do
     artist = Accounts.get_artist!(id)
-    images = CreateFun.Gallery.list_approved_images()
+    # images = CreateFun.Gallery.list_approved_images()
+    images = CreateFun.Gallery.list_approved_images_by_artist(artist.id)
     
     render(conn, "show.html", artist: artist, images: images)
   end

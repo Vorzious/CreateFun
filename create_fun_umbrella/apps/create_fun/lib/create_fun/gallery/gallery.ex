@@ -19,12 +19,19 @@ defmodule CreateFun.Gallery do
     |> Repo.all()
   end
 
+  def list_approved_images_by_artist(id) do
+    Image
+    |> Image.approved()
+    |> Image.by_artist(id)
+    |> Repo.all()
+  end
+
   def get_image!(id), do: Repo.get!(Image, id)
   def get_image(id), do: Repo.get(Image, id)
 
-  def create_image(attrs \\ %{}) do
+  def create_image(artist, attrs \\ %{}) do
     Multi.new
-    |> Multi.insert(:insert_image, Image.changeset(%Image{}, attrs))
+    |> Multi.insert(:insert_image, Image.changeset(%Image{}, artist, attrs))
     |> Multi.run(:set_image, fn %{insert_image: image} ->
       if(image.id) do
         image
