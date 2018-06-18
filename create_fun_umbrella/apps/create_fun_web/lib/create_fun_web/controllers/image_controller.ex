@@ -15,7 +15,9 @@ defmodule CreateFunWeb.ImageController do
   end
 
   def create(conn, %{"image" => image_params}) do
-    case Gallery.create_image(image_params) do
+    artist = CreateFun.Guardian.Plug.current_resource(conn, key: :artist) 
+
+    case Gallery.create_image(artist, image_params) do
       {:ok, %{insert_image: image}} ->
         conn
         |> put_flash(:info, "Image added successfully.")

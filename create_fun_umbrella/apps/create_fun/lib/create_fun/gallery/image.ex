@@ -16,13 +16,16 @@ defmodule CreateFun.Gallery.Image do
     field :child_friendly, :boolean, default: false
     field :approved, :boolean, default: false
 
+    belongs_to :artist, CreateFun.Accounts.Artist
+
     timestamps()
   end
 
   @doc false
-  def changeset(image, attrs) do
+  def changeset(image, artist, attrs) do
     image
     |> cast(attrs, [:title, :artist_name, :child_friendly, :description, :rating, :rate_count, :art_style, :approved])
+    |> put_assoc(:artist, artist)
     |> validate_required([:title, :child_friendly, :art_style])
   end
 
@@ -44,5 +47,10 @@ defmodule CreateFun.Gallery.Image do
   def child_friendly(query) do
     from im in query,
     where: im.child_friendly == true
+  end
+
+  def by_artist(query, id) do
+    from im in query,
+    where: im.artist_id == ^id
   end
 end
