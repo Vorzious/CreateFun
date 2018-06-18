@@ -15,7 +15,9 @@ defmodule CreateFunCms.ArtistController do
   end
 
   def create(conn, %{"artist" => artist_params}) do
-    case Accounts.create_artist(artist_params) do
+    artist = CreateFun.Guardian.Plug.current_resource(conn, key: :artist) 
+
+    case Accounts.create_artist(artist, artist_params) do
       {:ok, artist} ->
         conn
         |> put_flash(:info, "Artist created successfully.")

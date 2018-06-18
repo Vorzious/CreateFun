@@ -16,6 +16,8 @@ defmodule CreateFun.Accounts.Artist do
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
 
+    has_many :images, CreateFun.Gallery.Image
+
     timestamps()
   end
   use CreateFun.Accounts.User

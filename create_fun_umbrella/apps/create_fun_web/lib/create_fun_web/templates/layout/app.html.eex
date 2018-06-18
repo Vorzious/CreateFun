@@ -58,9 +58,9 @@
         <img src="<%= static_path(@conn, "/images/home.png") %>" alt="home" />
       <% end %>
 
-      <a href="#">
-        <img src="<%= static_path(@conn, "/images/heart.png") %>" alt="heart" />
-      </a>
+      <!-- <a href="#"> -->
+        <!-- <img src="<%#= static_path(@conn, "/images/heart.png") %>" alt="heart" /> -->
+      <!-- </a> -->
 
       <%= link to: image_path(@conn, :new), class: "high" do %>
         <img src="<%= static_path(@conn, "/images/add.png") %>" alt="add" />
@@ -70,9 +70,9 @@
         <img src="<%= static_path(@conn, "/images/user2.png") %>" alt="user" />
       <% end %>
 
-      <a href="#">
-        <img src="<%= static_path(@conn, "/images/search.png") %>" alt="search" />
-      </a>
+      <!-- <a href="#"> -->
+        <!-- <img src="<%#= static_path(@conn, "/images/search.png") %>" alt="search" /> -->
+      <!-- </a> -->
     </div>
 
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
