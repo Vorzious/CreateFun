@@ -4,18 +4,20 @@ defmodule CreateFunCms.ImageController do
   alias CreateFun.Gallery
   alias CreateFun.Gallery.Image
 
+  defp current_user(conn), do: CreateFun.Guardian.Plug.current_resource(conn, key: :artist)
+
   def index(conn, _params) do
     images = Gallery.list_images()
     render(conn, "index.html", images: images)
   end
 
   def new(conn, _params) do
-    changeset = Gallery.change_image(%Image{})
+    changeset = Gallery.change_image(current_user(conn), %Image{})
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"image" => image_params}) do
-    case Gallery.create_image(image_params) do
+    case Gallery.create_image(current_user(conn), image_params) do
       {:ok, %{insert_image: image}} ->
         conn
         |> put_flash(:info, "Image added successfully.")
@@ -32,14 +34,14 @@ defmodule CreateFunCms.ImageController do
 
   def edit(conn, %{"id" => id}) do
     image = Gallery.get_image!(id)
-    changeset = Gallery.change_image(image)
+    changeset = Gallery.change_image(current_user(conn), image)
     render(conn, "edit.html", image: image, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "image" => image_params}) do
     image = Gallery.get_image!(id)
 
-    case Gallery.update_image(image, image_params) do
+    case Gallery.update_image(current_user(conn), image, image_params) do
       {:ok, image} ->
         conn
         |> put_flash(:info, "Image updated successfully.")

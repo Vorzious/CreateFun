@@ -44,9 +44,9 @@ defmodule CreateFun.Gallery do
     |> Repo.transaction()
   end
 
-  def update_image(%Image{} = image, attrs) do
+  def update_image(artist, %Image{} = image, attrs) do
     image
-    |> Image.changeset(attrs)
+    |> Image.changeset(artist, attrs)
     |> Image.changeset_image(attrs)
     |> Repo.update()
   end
@@ -55,8 +55,8 @@ defmodule CreateFun.Gallery do
     Repo.delete(image)
   end
 
-  def change_image(%Image{} = image) do
-    Image.changeset(image, %{})
+  def change_image(artist, %Image{} = image) do
+    Image.changeset(image, artist, %{})
   end
 
   def update_image_approval(image, status) do
